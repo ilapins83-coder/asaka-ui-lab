@@ -1,0 +1,114 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <title>ASAKA UI Lab</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600;700;800;900&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <main class="lab">
+      <section class="device" aria-label="ASAKA Galaxy S25 UI canvas">
+        <div class="camera-hole" aria-hidden="true"></div>
+        <div class="screen">
+          <header class="app-header">
+            <div>
+              <p>ASAKA</p>
+              <h1 id="screenTitle">Add media</h1>
+            </div>
+            <span id="stepBadge">1/4</span>
+          </header>
+
+          <div class="progress" aria-hidden="true">
+            <span id="progressBar"></span>
+          </div>
+
+          <section class="view is-active" data-view="0">
+            <label class="dropzone">
+              <input id="mediaInput" type="file" accept="image/*,video/*" multiple />
+              <span class="icon icon-upload" aria-hidden="true"></span>
+              <strong>Add photos or clips</strong>
+            </label>
+            <p class="inline-error" id="mediaError" role="status"></p>
+            <div class="thumb-row" id="mediaList" aria-label="Selected media"></div>
+          </section>
+
+          <section class="view" data-view="1">
+            <div class="mode-strip" role="group" aria-label="Video mode">
+              <button class="mode-chip is-selected" type="button" data-mode="story" aria-pressed="true">
+                <span class="icon icon-story" aria-hidden="true"></span>
+                <span>Story</span>
+              </button>
+              <button class="mode-chip" type="button" data-mode="sell" aria-pressed="false">
+                <span class="icon icon-sell" aria-hidden="true"></span>
+                <span>Sell</span>
+              </button>
+              <button class="mode-chip" type="button" data-mode="invite" aria-pressed="false">
+                <span class="icon icon-invite" aria-hidden="true"></span>
+                <span>Invite</span>
+              </button>
+            </div>
+
+            <div class="frame-editor">
+              <div class="active-media" id="activeMedia">
+                <div class="preview-empty">Add media</div>
+              </div>
+              <div class="frame-count" id="frameCount">0/0</div>
+              <input id="frameTitle" class="frame-title" type="text" maxlength="55" placeholder="Title" />
+              <textarea id="frameText" class="frame-text" rows="4" maxlength="180" placeholder="Short text"></textarea>
+              <div class="input-row">
+                <span id="frameTextCount">0/180</span>
+                <span>Shown with this frame</span>
+              </div>
+            </div>
+
+            <div class="timeline" id="frameTimeline" aria-label="Frame timeline"></div>
+            <p class="inline-error" id="inputError" role="status"></p>
+          </section>
+
+          <section class="view" data-view="2">
+            <div class="preview-layout">
+              <div class="preview" id="preview">
+                <div class="preview-empty">Preview</div>
+              </div>
+              <div class="frame-strip" id="frameStrip" aria-label="Frame order"></div>
+            </div>
+            <div class="caption-stack" id="captionStack"></div>
+            <div class="notice-stack" id="noticeStack"></div>
+          </section>
+
+          <section class="view" data-view="3">
+            <div class="review-card">
+              <strong>Ready</strong>
+              <dl>
+                <div><dt>Mode</dt><dd id="summaryMode">Story</dd></div>
+                <div><dt>Media</dt><dd id="summaryMedia">0 files</dd></div>
+                <div><dt>Frames</dt><dd id="summaryFrames">0 text</dd></div>
+                <div><dt>CTA</dt><dd id="summaryCta">None</dd></div>
+              </dl>
+            </div>
+            <button id="renderButton" class="render-button" type="button">
+              <span class="icon icon-check" aria-hidden="true"></span>
+              <span>Create</span>
+            </button>
+            <p class="render-note compact-status" id="renderNote">Vertical video export.</p>
+          </section>
+
+          <footer class="nav">
+            <button id="backButton" type="button" aria-label="Back">
+              <span class="icon icon-back" aria-hidden="true"></span>
+            </button>
+            <button id="nextButton" type="button" aria-label="Next">
+              <span>Next</span>
+              <span class="icon icon-next" aria-hidden="true"></span>
+            </button>
+          </footer>
+        </div>
+      </section>
+    </main>
+    <script src="./app.js"></script>
+  </body>
+</html>
